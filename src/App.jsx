@@ -14,7 +14,7 @@ function App() {
   });
   const [editId, setEditId] = useState(null);
 
-  const API_URL = "http://localhost:5000/api/employee_details";
+  const API_URL = "https://crud-using-mongoose-backend.onrender.com";
 
   const fetchEmployees = async () => {
     const res = await fetch(API_URL);
