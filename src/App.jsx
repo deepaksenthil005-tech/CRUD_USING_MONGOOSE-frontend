@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
+const API_URL =
+  "https://crud-using-mongoose-backend.onrender.com/employees";
+
 function App() {
   const [employees, setEmployees] = useState([]);
   const [formData, setFormData] = useState({
@@ -15,9 +18,7 @@ function App() {
   const [editId, setEditId] = useState(null);
 
   const fetchEmployees = async () => {
-    const res = await fetch(
-      "https://crud-using-mongoose-backend.onrender.com"
-    );
+    const res = await fetch(API_URL);
     const data = await res.json();
     setEmployees(data);
   };
@@ -67,8 +68,9 @@ function App() {
   };
 
   const handleEdit = (emp) => {
-    setFormData(emp);
-    setEditId(emp._id);
+    const { _id, ...rest } = emp;
+    setFormData(rest);
+    setEditId(_id);
   };
 
   return (
@@ -163,7 +165,7 @@ function App() {
 
           <tbody>
             {employees.map((emp) => (
-              <tr key={emp.id}>
+              <tr key={emp._id}>
                 <td data-label="Department ID">{emp.department_id}</td>
                 <td data-label="Employee Name">{emp.emp_name}</td>
                 <td data-label="Email">{emp.email}</td>
@@ -172,8 +174,18 @@ function App() {
                 <td data-label="Department">{emp.department}</td>
                 <td data-label="Salary">{emp.salary}</td>
                 <td data-label="Action">
-                  <button className="edit-btn">Edit</button>
-                  <button className="delete-btn">Delete</button>
+                  <button
+                    className="edit-btn"
+                    onClick={() => handleEdit(emp)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(emp._id)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
