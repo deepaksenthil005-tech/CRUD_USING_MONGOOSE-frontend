@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 const API_URL =
-  "https://crud-using-mongoose-backend.onrender.com/employees";
+  "https://crud-using-mongoose-backend.onrender.com";
 
 function App() {
   const [employees, setEmployees] = useState([]);
