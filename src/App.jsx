@@ -16,7 +16,7 @@ function App() {
 
   const fetchEmployees = async () => {
     const res = await fetch(
-      "https://crud-using-mongoose-backend.onrender.com/api/employee_details"
+      "https://crud-using-mongoose-backend.onrender.com"
     );
     const data = await res.json();
     setEmployees(data);
