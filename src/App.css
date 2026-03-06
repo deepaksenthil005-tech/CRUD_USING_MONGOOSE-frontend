@@ -1,0 +1,238 @@
+* {
+  font-family: "Times New Roman", Times, serif;
+  font-variant: small-caps;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f5f7fa;
+  margin: 0;
+  padding: 0 30px;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  margin: 25px 0;
+  color: #333;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+/* Form Grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+/* Inputs */
+input,
+select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+}
+
+input:focus,
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button */
+.primary-btn {
+  grid-column: 1 / -1;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.primary-btn:hover {
+  background: #0056b3;
+}
+
+/* Table */
+.table-wrapper {
+  overflow-x: auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: fit-content;
+  margin-top: 30px;
+}
+
+th {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background: #f1f1f1;
+}
+
+/* Action Buttons */
+.edit-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: #1e7e34;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
+
+/* ============================= */
+/* 📱 Mobile (0 – 480px) */
+/* ============================= */
+/* ============================= */
+/* 📱 MOBILE VIEW (0px – 480px) */
+/* ============================= */
+
+@media (max-width: 670px) {
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    display: block;
+    margin-bottom: 15px;
+    padding: 12px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  }
+
+  tbody td {
+    display: block;
+    text-align: left;
+    padding: 6px 0;
+    border: none;
+    position: relative;
+    padding-left: 120px;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    top: 6px;
+    font-weight: bold;
+    color: #007bff;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    margin-top: 5px;
+  }
+}
+
+/* ============================= */
+/* 📱 Tablet (481px – 768px) */
+/* ============================= */
+@media (min-width: 481px) and (max-width: 800px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: auto;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  table {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1024px) {
+  .card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: auto;
+  }
+  .container {
+    max-width: 95%;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================= */
+/* 🖥 Desktop (1025px and above) */
+/* ============================= */
+@media (min-width: 1025px) {
+  .container {
+    max-width: 1200px;
+  }
+}
