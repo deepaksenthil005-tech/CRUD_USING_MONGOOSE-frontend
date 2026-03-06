@@ -14,10 +14,10 @@ function App() {
   });
   const [editId, setEditId] = useState(null);
 
-  const API_URL = "https://crud-using-mongoose-backend.onrender.com";
-
   const fetchEmployees = async () => {
-    const res = await fetch(API_URL);
+    const res = await fetch(
+      "https://crud-using-mongoose-backend.onrender.com/api/employee_details"
+    );
     const data = await res.json();
     setEmployees(data);
   };
